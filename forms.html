@@ -7,7 +7,7 @@
     <title>Forms Demo</title>
 </head>
 <body>
-    <h1>Forms</h1>
+    <h1>Forms Demos</h1>
     <form action="/tacos">
         <p>
             <label for="username">Enter a Username:</label>
@@ -23,7 +23,7 @@
         </p>
         <p>
             <label for="number">Enter a Number:</label>
-            <input id="number" type="number" placeholder="enter a number" name="num">
+            <input id="number" type="number" placeholder="enter a number" name="num" min="1" max="1000" step="2">
         </p>
         <!-- 폼안에 있지만 타입을 버튼으로 지정해서 서브밋을 실행하지 않게 한다 -->
         <button type="button">PLEASE DO MIT SUBMIT THE FORM</button>
@@ -50,6 +50,38 @@
     <form action="https://www.youtube.com/results">
         <input type="text" name="search_query">
         <button>Search Youtube</button>
+    </form>
+
+    <h2>More Inputs!</h2>
+    <form action="/birds">
+        <input type="checkbox" name="agree_tos" id="agree">
+        <label for="agree">I agree to everything</label>
+        <p>
+            <label for="xs">xs:</label>
+            <input type="radio" name="size" id="xs" value="xs">
+            <label for="s">s:</label>
+            <input type="radio" name="size" id="s" value="s">
+            <label for="m">m:</label>
+            <input type="radio" name="size" id="m" value="m">
+        </p>
+        <p>
+            <label for="meal">Please Select an Entree</label>
+            <select name="meal" id="meal">
+                <option value="fish">Fish</option>
+                <option value="veg">Vegitarian</option>
+                <option value="steak">Steak</option>
+            </select>
+        </p>
+        <p>
+            <label for="cheese">input type cheese</label>
+            <input type="range" id="cheese" min="1" max="100" value="60" step="5" name="cheese_level">
+        </p>
+        <p>
+            <label for="requests">Enter Some Requests??</label>
+            <br>
+            <textarea name="requests" id="requests" cols="30" rows="10" placeholder="type something"></textarea>
+        </p>
+        <button>submit</button>
     </form>
 </body>
 </html>   
