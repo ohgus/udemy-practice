@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Practice1</title>
+</head>
+<body>
+    <h1>Form Practice1</h1>
+    <form action="/walla">
+        <!-- enter name -->
+        <div>
+            <label for="first">First Name</label>
+            <input type="text" id="first" name="first" placeholder="type your first name" required>
+            <label for="last">Last Name</label>
+            <input type="text" id="last" name="last" placeholder="type your last name" required>
+        </div>
+        <!-- select race -->
+        <div>
+            <p>Select a Race:</p>
+            <div>
+                <input type="radio" name="race" id="fun" value="fun">
+                <label for="fun">Fun Run 5K</label>
+            </div>
+            <div>
+                <input type="radio" name="race" id="half" value="half">
+                <label for="half">Half Marathon</label>
+            </div>
+            <div>
+                <input type="radio" name="race" id="full" value="full">
+                <label for="full">Full Marathon</label>
+            </div>
+        </div>
+        <!-- enter id n password -->
+        <div>
+            <label for="mail">Email</label>
+            <input type="email" id="mail" name="mail" placeholder="enter email" required>
+            <label for="pw">Password</label>
+            <input type="password" id="pw" name="pw" placeholder="enter password" required>
+        </div>
+        <!-- select age -->
+        <div>
+            <label for="age">Select Age Group</label>
+            <select name="age" id="age">
+                <option value="u18">12~18</option>
+                <option value="u23">19~23</option>
+                <option value="u30">24~30</option>
+                <option value="u50">31~50</option>
+            </select>
+        </div>
+        <button>Register</button>
+    </form>
+</body>
+</html>
