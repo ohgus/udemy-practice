@@ -32,8 +32,43 @@ span {
 
 .post a {
     color:#457b9d;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 footer a {
     color: #e63946;
+}
+ 
+h2 + button {
+    font-size: 20px;
+}
+
+footer > a {
+    color: #90e0ef;
+}
+
+input[type = "password"] {
+    color: greenyellow;
+}
+
+a[href*="google"]{
+    color: magenta;
+}
+
+.post button:hover {
+    background-color: #e63946;
+    color: #f1faee;
+}
+
+.post a:hover {
+    text-decoration: underline;
+}
+
+.post button:active {
+    background-color: #06d6a0;
+}
+
+.post:nth-of-type(2n) {
+    background-color: #dfe8dc;
 }
