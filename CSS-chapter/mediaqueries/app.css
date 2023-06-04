@@ -19,7 +19,6 @@ ul,li {
 }
 
 ul {
-    border: 1px solid red;
     flex: 1;
     max-width: 50%;
     /* display: inline-flex; */
