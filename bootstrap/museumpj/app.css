@@ -1,5 +1,5 @@
 body {
-    background-color: #f5d9df;
+    background-color: #a3b18a;
     font-family: nunito,sans-serif;
 }
 
@@ -13,10 +13,26 @@ body {
 }
 
 #mainNavbar .nav-link:hover {
-    color: #ea1c2c;
+    color: #fb5607;
 }
 
 #mainNavbar .navbar-brand {
-    color: #ea1c2c;
+    color: #faedcd;
     font-size: 1.5rem;
+}
+
+#headingGroup span {
+    color: #fb5607;
+}
+
+#headingGroup h1 {
+    font-weight: 100;
+    font-size: 3.5rem;
+}
+
+@media (max-width: 1100px) {
+    #headingGroup h1 {
+        font-weight: 100;
+        font-size: 3rem;
+    }    
 }
