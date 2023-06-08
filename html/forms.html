@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Demo</title>
+</head>
+<body>
+    <h1>Forms Demos</h1>
+    <form action="/tacos">
+        <p>
+            <label for="username">Enter a Username:</label>
+            <input id="username" type="text" placeholder="username" name="username">
+        </p>
+        <p>
+            <label for="password">Enter a Password:</label>
+            <input id="password" type="password" placeholder="password" name="password">
+        </p>
+        <p>
+            <label for="color">Enter a Color:</label>
+            <input type="color" id="color" name="color">
+        </p>
+        <p>
+            <label for="number">Enter a Number:</label>
+            <input id="number" type="number" placeholder="enter a number" name="num" min="1" max="1000" step="2">
+        </p>
+        <!-- 폼안에 있지만 타입을 버튼으로 지정해서 서브밋을 실행하지 않게 한다 -->
+        <button type="button">PLEASE DO MIT SUBMIT THE FORM</button>
+        <!-- 폼안에 있는 버튼은 타입을 지정하지 않으면 기본값으로 서브밋을 실행한다 -->
+        <button>Submit</button>
+        <!-- 인풋타입을 서브밋으로 지정해서 버튼처럼 보이게 만들 수 있다 -->
+        <input type="submit" value="click me!!">
+    </form>
+    <hr>
+    <!-- 폼 밖에 있는 버튼은 기본값으로 그냥 버튼이 된다 -->
+    <button>IN THE MIDDLE!!</button>
+    <h2>Hijacking Searches</h2>
+    <h3>Search Reddit</h3>
+    <form action="https://www.reddit.com/search">
+        <input type="text" name="q">
+        <button>Search Reddit</button>
+    </form>
+    <h3>Search Google</h3>
+    <form action="https://www.google.com/search">
+        <input type="text" name="q">
+        <button>Search Google</button>
+    </form>
+    <h3>Search Youtube</h3>
+    <form action="https://www.youtube.com/results">
+        <input type="text" name="search_query">
+        <button>Search Youtube</button>
+    </form>
+
+    <h2>More Inputs!</h2>
+    <form action="/birds">
+        <input type="checkbox" name="agree_tos" id="agree">
+        <label for="agree">I agree to everything</label>
+        <p>
+            <label for="xs">xs:</label>
+            <input type="radio" name="size" id="xs" value="xs">
+            <label for="s">s:</label>
+            <input type="radio" name="size" id="s" value="s">
+            <label for="m">m:</label>
+            <input type="radio" name="size" id="m" value="m">
+        </p>
+        <p>
+            <label for="meal">Please Select an Entree</label>
+            <select name="meal" id="meal">
+                <option value="fish">Fish</option>
+                <option value="veg">Vegitarian</option>
+                <option value="steak">Steak</option>
+            </select>
+        </p>
+        <p>
+            <label for="cheese">input type cheese</label>
+            <input type="range" id="cheese" min="1" max="100" value="60" step="5" name="cheese_level">
+        </p>
+        <p>
+            <label for="requests">Enter Some Requests??</label>
+            <br>
+            <textarea name="requests" id="requests" cols="30" rows="10" placeholder="type something"></textarea>
+        </p>
+        <button>submit</button>
+    </form>
+        <h2>Validations Demo</h2>
+        <form action="/dummy">
+        <label for="first">Enter First Name</label>
+        <input type="text" name="first" id="first" required>
+        <p>
+            <label for="usernames">Username</label>
+            <input type="text" name="usernames" id="usernames" minlength="5" maxlength="20" required>
+        </p>
+        <p>
+            <input type="email" required>
+        </p>
+        <button>submit</button>
+    </form>
+    </body>
+</html>   
