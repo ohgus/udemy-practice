@@ -34,6 +34,14 @@ app.post("/cats", (req, res) => {
 app.get("/dogs", (req, res) => {
     res.send("WOOF!!");
 })
+// queryString
+app.get("/search",(req, res) => {
+    const {q} = req.query;
+    if(!q) {
+        res.send("NOTHING FOUND: ERROR!!!");
+    }
+    res.send(`<h1>Search result for: ${q}</h1>`);
+})
 // "*" => "i dont know that path" 항상 맨 밑에 와야 함!
 app.get("*", (req, res) => {
     res.send("I DONT KNOW THAT PATH!!");
