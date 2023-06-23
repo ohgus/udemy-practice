@@ -3,6 +3,10 @@ const app = express();
 const path = require("path");
 const redditData = require("./data.json");
 
+//정적 에셋 제공하기
+app.use(express.static(path.join(__dirname,"public"))); // 절대경로 설정
+// app.use(express.static("public"));
+
 // ejs 파일을 불러오는 express 의 메서드
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views")); // 모든 디렉토리에서 views 폴더에 접근을 가능하게 해준다.
