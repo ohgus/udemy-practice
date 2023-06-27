@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
     price: {
         type: Number,
         required: true,
-        min: 0
+        min: [0, "Price must be positive!"] // 두번째로 들어오는 값은 우리가 에러상황에서 나오는 커스텀 에러 메시지
     },
     onSale: {
         type: Boolean,
@@ -34,6 +34,10 @@ const productSchema = new mongoose.Schema({
             type: Number,
             default: 0
         }
+    },
+    size: {
+        type: String,
+        enum: ["S", "M", "L"] // 주어진 선택지에 있는 결과인지 확인하는 옵션 
     }
 });
 
@@ -43,19 +47,9 @@ const Product = mongoose.model("Product", productSchema);
 // const bike = new Product({ name: "Bike Helmet", price: 29.5});
 // const bike = new Product({ name: "Bike Helmet2", price: 19.5, categories: ["Cycling", "Safety"]});
 // const bike = new Product({ name: "Bike Helmet3", price: 15.5, categories: ["Cycling", "Safety"]});
-const bike = new Product({ name: "Tire Pump", price: 19.5, categories: ["Cycling"]});
+const bike = new Product({ name: "Bike Jersey", price: 29.5, categories: ["Cycling"], size: "S"});
 
-// bike.save()
-//     .then(data => {
-//         console.log("IT WORKED!");
-//         console.log(data);
-//     })
-//     .catch(err => {
-//         console.log("OH NO ERRER!!");
-//         console.log(err);
-//     })
-
-Product.findOneAndUpdate({name: "Tire Pump"}, {price: 20}, {new: true, runValidators: true})
+bike.save()
     .then(data => {
         console.log("IT WORKED!");
         console.log(data);
@@ -64,3 +58,13 @@ Product.findOneAndUpdate({name: "Tire Pump"}, {price: 20}, {new: true, runValida
         console.log("OH NO ERRER!!");
         console.log(err);
     })
+
+// Product.findOneAndUpdate({name: "Tire Pump"}, {price: 20}, {new: true, runValidators: true})
+//     .then(data => {
+//         console.log("IT WORKED!");
+//         console.log(data);
+//     })
+//     .catch(err => {
+//         console.log("OH NO ERRER!!");
+//         console.log(err);
+//     })
