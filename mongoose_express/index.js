@@ -16,17 +16,24 @@ mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
         console.log(err);
     });
 
-const categories = ["fruit", "vegetable", "dairy"];
-
+    
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
+const categories = ["fruit", "vegetable", "dairy"];
+
 app.get("/products", async (req, res) => {
-    const products = await Product.find({});
-    res.render("products/index", {products});
+    const {category} = req.query;
+    if(category){
+        const products = await Product.find({category});
+        res.render("products/index", {products, category});
+    } else {
+        const products = await Product.find({});
+        res.render("products/index", {products, category: "All"});
+    }
 });
 
 app.get("/products/new", (req, res) => {
