@@ -10,6 +10,11 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use("/dogs", (req, res, next) => {
+    console.log("I LOVE DOGS");
+    next();
+});
+
 // app.use((req, res, next) => {
 //     console.log("first middleware");
 //     next();
@@ -29,6 +34,10 @@ app.get("/dogs", (req, res) => {
     console.log(`REQUEST TIME: ${req.requestTime}`);
     res.send("Woof Woof!");
 });
+
+app.use((req, res) => {
+    res.status(404).send("NOT FOUND!");
+})
 
 app.listen(3000, () => {
     console.log("App is running on Port 3000");
