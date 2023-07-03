@@ -39,6 +39,10 @@ app.get("/", (req, res) => {
     res.send("Home Page!");
 });
 
+app.get("/error", (req, res) => {
+    dogs.fly();
+});
+
 app.get("/dogs", (req, res) => {
     console.log(`REQUEST TIME: ${req.requestTime}`);
     res.send("Woof Woof!");
@@ -51,6 +55,14 @@ app.get("/secret", verifyPassword, (req, res) => {
 app.use((req, res) => {
     res.status(404).send("NOT FOUND!");
 });
+
+app.use((err, req, res, next) => {
+    console.log("***************");
+    console.log("*****ERROR*****");
+    console.log("***************");
+    console.log(err);
+    next(err);
+})
 
 app.listen(3000, () => {
     console.log("App is running on Port 3000");
