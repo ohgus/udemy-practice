@@ -20,7 +20,8 @@ const verifyPassword = (req, res, next) => {
     if(password === "sbk"){
        return next(); // return 을 사용하지 않으면 서버가 클라이언트에 두개 이상의 응답을 보내려고 하여 에러가 발생한다.
     }
-    res.send("SORRY U NEED A PASSWORD!");
+    // res.send("SORRY U NEED A PASSWORD!");
+    throw new Error("Password Required!");
 }
 
 // app.use((req, res, next) => {
