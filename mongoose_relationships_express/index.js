@@ -42,13 +42,16 @@ app.post("/farms", async (req, res) => {
 });
 
 app.get("/farms/:id", async (req, res) => {
-    const farm = await Farm.findById(req.params.id);
+    const farm = await Farm.findById(req.params.id).populate("products");
+    console.log(farm);
     res.render("farms/show", { farm });
 });
 
-app.get("/farms/:id/products/new", (req, res) => {
+app.get("/farms/:id/products/new", async (req, res) => {
     const { id } = req.params;
-    res.render("products/new", { categories, id });
+    const farm = await Farm.findById(id);
+
+    res.render("products/new", { categories, farm });
 });
 
 app.post("/farms/:id/products", async (req, res) => {
@@ -60,7 +63,7 @@ app.post("/farms/:id/products", async (req, res) => {
     product.farm = farm;
     await farm.save();
     await product.save();
-    res.send(farm);
+    res.redirect(`/farms/${id}`);
 });
 // Product Routes
 
@@ -89,7 +92,7 @@ app.post("/products", async (req, res) => {
 
 app.get("/products/:id", async (req, res) => {
     const { id } = req.params;
-    const product = await Product.findById(id);
+    const product = await Product.findById(id).populate("farm", "name");
     res.render("products/show", { product });
 });
 
