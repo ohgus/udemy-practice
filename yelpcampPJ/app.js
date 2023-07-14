@@ -7,6 +7,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const methodOverride = require("method-override");
 const ExpressError = require("./utils/ExpressError");
@@ -14,6 +15,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
 const helmet = require("helmet");
+// const dbUrl = process.env.DB_URL;
 
 const mongoSanitize = require('express-mongo-sanitize');
 
@@ -21,7 +23,7 @@ const userRoutes = require("./routes/users");
 const campgroundRoutes = require("./routes/campgrounds");
 const reviewRoutes = require("./routes/reviews");
 
-
+// "mongodb://localhost:27017/yelp-camp"
 mongoose.connect("mongodb://localhost:27017/yelp-camp");
 
 
