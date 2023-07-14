@@ -6,6 +6,9 @@ style: 'mapbox://styles/mapbox/light-v11',
 center: [-103.5917, 40.6699],
 zoom: 3
 });
+
+const nav = new mapboxgl.NavigationControl();
+map.addControl(nav, 'top-right');
  
 map.on('load', () => {
     // Add a new source from our GeoJSON data and
